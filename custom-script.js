@@ -28,8 +28,8 @@ function appendElement(string, destination = "head") {
   });
 }
 
-() => {
-  window.cs = ({ headerCode, footerCode }) => {
+(function (window) {
+  window.cs = function ({ headerCode, footerCode }) {
     if (typeof window !== "undefined") {
       try {
         appendElement(headerCode, "head");
@@ -37,4 +37,4 @@ function appendElement(string, destination = "head") {
       } catch (error) {}
     }
   };
-};
+})(window, document);
